@@ -12,14 +12,9 @@ function changeInputTheme(evt) {
   const check = inputElem.checked;
 
   if (check) {
-    document.body.classList.add(Theme.DARK);
-    document.body.classList.remove(Theme.LIGHT);
-    localStorage.setItem('theme', Theme.DARK);
+    replaceTheme(Theme.LIGHT, Theme.DARK);
   } else {
-    document.body.classList.add(Theme.LIGHT);
-    document.body.classList.remove(Theme.DARK);
-    localStorage.removeItem('theme');
-    localStorage.setItem('theme', Theme.LIGHT);
+    replaceTheme(Theme.DARK, Theme.LIGHT);
   }
 }
 
@@ -29,3 +24,10 @@ if (localTheme === Theme.DARK) {
   body.classList.add(Theme.DARK);
   inputElem.checked = true;
 }
+
+// Функция для смены темы
+const replaceTheme = (oldTheme, newTheme) => {
+  document.body.classList.add(newTheme);
+  document.body.classList.remove(oldTheme);
+  localStorage.setItem('theme', newTheme);
+};
