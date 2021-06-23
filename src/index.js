@@ -1,2 +1,3 @@
 import './styles.css';
-import './cards-menu';
+import './js/cards-menu';
+import './js/theme';
